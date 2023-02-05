@@ -53,6 +53,7 @@ class AddDoctor extends JFrame {
 
 		ActionListener a1 = (ae) -> {
 			try {
+				String mail = "";		// Enter the Gmail Id through which you want to send the Gmail ==> eg: abc@gmail.com
 				String name = txtName.getText();
 				String phone = txtPhone.getText();
 				String spec = txtSpecialization.getText();
@@ -152,7 +153,7 @@ class AddDoctor extends JFrame {
 						msg.setSubject(subject);
 						String txt = "Hello " + name + "\n" + "Your have been Registered in HMS as an Doctor \n" + "USERNAME: " + user + "\n PASSWORD: " + pass;
 						msg.setText(txt);
-						msg.setFrom(new InternetAddress("yashchavare1@gmail.com"));
+						msg.setFrom(new InternetAddress(mail));
 						msg.addRecipient(Message.RecipientType.TO, new InternetAddress(email));
 						Transport.send(msg);
 					}
