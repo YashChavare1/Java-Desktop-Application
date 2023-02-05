@@ -1,4 +1,5 @@
 # Java-Desktop-Application
+## About Project
 Developed an Java Desktop Application Using Java, In Which I have develop a Hospital Management System and Implement all the basic functionality of a Hospital <br>	
 Used Swing and AWT for developing GUI, used JDBC for Connecting Application with Database(MySQL). <br>
 Used JavaMail API that is used to compose, write and read electronic messages (emails). <br>
