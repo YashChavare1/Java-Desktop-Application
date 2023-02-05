@@ -230,7 +230,4 @@ class AddDoctor extends JFrame {
 		String users = name + "" + n1 + "" + n2 + "" + n3;
 		return users;		
 	}
-	public static void main(String [] args) {
-		AddDoctor ad = new AddDoctor();
-	}
 }
