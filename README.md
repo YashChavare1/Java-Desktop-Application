@@ -7,3 +7,4 @@ Step 2: Change your SQL - URL, Username, Password. in all the file.
 Step 3: Create Database ==> "kc_project".
 Step 4: Create tables in "kc_project" Database.
 
+
