@@ -1,0 +1,56 @@
+create table admitpatient ( 
+	id int primary key, 
+	roomClass int, 
+	year int, 
+	month int, 
+	days int, 
+	hour int, 
+	min int, 
+	roomCost varchar(10)
+);
+
+create table auth (
+	username varchar(20) NOT NULL primary key,
+	password varchar(20) NOT NULL
+);
+
+create table doctor (
+	name varchar(20) NOT NULL,
+	phone varchar(30) NOT NULL,
+	specialization varchar(50) NOT NULL,
+	degree varchar(30) NOT NULL,
+	manage_disease varchar(100) NOT NULL,
+	email varchar(30) NOT NULL,
+	password varchar(12) NOT NULL,
+	username varchar(20) NOT NULL primary key	
+);
+
+create table medicalemployee (
+	name varchar(30) NOT NULL,
+	address varchar(30) NOT NULL,
+	phone varchar(13) NOT NULL,
+	email varchar(30) NOT NULL,
+	username varchar(30) NOT NULL primary key,
+	password varchar(30) NOT NULL
+);
+
+create table patient (
+	patientId varchar(20) 	NOT NULL primary key,
+	name varchar(20) NOT NULL,
+	age int NOT NULL,
+	phone varchar(13) NOT NULL,
+	previous_issue varchar(255) NOT NULL,
+	email varchar(30) NOT NULL,
+	address varchar(150) NOT NULL,
+	prescription varchar(255) NOT NULL
+);
+
+create table rooms (
+	type varchar(40) NOT NULL primary key,
+	cost int NOT NULL,
+	beds varchar(20) NOT NULL,
+	available_rooms varchar(20) NOT NULL,
+	roomClass varchar(20) NOT NULL
+);
+
+insert into auth values("admin", "admin@123");
