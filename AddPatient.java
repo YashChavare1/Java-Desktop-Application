@@ -73,6 +73,7 @@ class AddPatient extends JFrame {
 
 		ActionListener a1 = (ae) -> {
 			try {
+				String mail = "";		// Enter the Gmail Id through which you want to send the Gmail ==> eg: abc@gmail.com
 				String id = random();
 				String name = txtName.getText();
 				String age = txtAge.getText();
@@ -169,7 +170,7 @@ class AddPatient extends JFrame {
 						msg.setSubject(subject);
 						String txt = "Hello " + name + "; \n" + "Your Registration in HMS is Done. \n" + "Patient Id: " + id;
 						msg.setText(txt);
-						msg.setFrom(new InternetAddress("yashchavare1@gmail.com"));
+						msg.setFrom(new InternetAddress(mail));
 						msg.addRecipient(Message.RecipientType.TO, new InternetAddress(email));
 						Transport.send(msg);
 					}
@@ -223,9 +224,5 @@ class AddPatient extends JFrame {
 		int n4 = (int)(Math.random()*10);
 		String ran = n1 + "" + n2 + "" + n3 + "" + n4;
 		return ran;
-	}
-
-	public static void main(String [] args) {
-		AddPatient d = new AddPatient();
 	}
 }
