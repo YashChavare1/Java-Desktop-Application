@@ -2,6 +2,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.sql.*;
+import javax.mail.*;
+import javax.mail.internet.*;
+import javax.activation.*;
+import java.util.Properties;
 
 class Prescription extends JFrame {
 
@@ -77,6 +81,9 @@ class Prescription extends JFrame {
 		btnSubmit.setBounds(200, 530, 200, 40);
 		btnBack.setBounds(200, 590, 200, 40);
 
+		String senderMail = "";		// Enter Sender email.
+		StringBuffer mail = new StringBuffer("");
+
 		try {
 			DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
 			String url = "jdbc:mysql://localhost:3306/kc_project";
@@ -95,6 +102,7 @@ class Prescription extends JFrame {
 					labEmailRes.setText(rs.getString(6));
 					labAddressRes.setText(rs.getString(7));
 					txtPrescription.setText(rs.getString(8));
+					mail.append(rs.getString(6));
 				}
 			}
 			catch(SQLException e) {
@@ -122,16 +130,48 @@ class Prescription extends JFrame {
 						JOptionPane.showMessageDialog(c, "Done");
 						Doctor d = new Doctor();
 						dispose();
+						// Sending mail to the user
+						// mail kahan se jayega
+						Properties p = System.getProperties();
+						p.put("mail.smtp.host", "smtp.gmail.com");
+						p.put("mail.smtp.port", 587);
+						p.put("mail.smtp.auth", true);
+						p.put("mail.smtp.starttls.enable", true);
+						
+						// appka un and pw ka authentication
+						Session ms = Session.getInstance(p, new Authenticator() {
+							public PasswordAuthentication getPasswordAuthentication() {
+								String un = "yashchavare1@gmail.com";
+								String pw = "ldujsciszsxxgaok";
+								return new PasswordAuthentication(un, pw);
+							}
+						});
+						
+						try {
+							// mail ko draft karke bhejo
+							MimeMessage msg = new MimeMessage(ms);
+							String subject = "Message from => " + "Hospital Management System";
+							msg.setSubject(subject);
+							String email = mail.toString();
+							String txt = "ID: " + id + "\n" + "Prescription: " + txtPrescription.getText();
+							msg.setText(txt);
+							msg.setFrom(new InternetAddress(senderMail));
+							msg.addRecipient(Message.RecipientType.TO, new InternetAddress(email));
+							Transport.send(msg);
+						}
+						catch(Exception e) {
+							JOptionPane.showMessageDialog(c, "Email Issue => " + e);
+						}		
 						con.close();
 					}
 					catch(SQLException e) {	
 						JOptionPane.showMessageDialog(c, "ISSUE1 ==> " + e);
 					}
-					
 				}
 				else {
 					JOptionPane.showMessageDialog(c, "Enter Prescription.");
 				}
+				
 			}
 			catch(SQLException e) {
 				JOptionPane.showMessageDialog(c, "ISSUE ==> " + e);
