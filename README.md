@@ -38,7 +38,7 @@ Step 5: In Project Folder Open CMD run below commands to run the project. <br><b
 ### Admin Dashboard ==> View  ==> Here you can view all the member which you have added to the system
 ![image](https://user-images.githubusercontent.com/100895486/216935776-617ec574-c767-426b-b779-668ec9b98b63.png)
 
-### Doctor Dashboard ==> After Login
+### Doctor Dashboard ==> Login
 ![image](https://user-images.githubusercontent.com/100895486/216936073-cab69e38-a657-4067-be93-26fad3acbd2c.png)
 
 ### Doctor Dashboard ==> Prescription 
