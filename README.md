@@ -47,3 +47,5 @@ Step 5: In Project Folder Open CMD run below commands to run the project. <br><b
 ### Medical Employee Login
 ![image](https://user-images.githubusercontent.com/100895486/216936563-6da4d15c-9801-4c30-83ae-1d01b701028e.png)
 
+### Medical Login ==> View Patient Prescription.
+![image](https://user-images.githubusercontent.com/100895486/216937364-b545c98f-d5bf-4395-a2d4-51829b857a0b.png)
